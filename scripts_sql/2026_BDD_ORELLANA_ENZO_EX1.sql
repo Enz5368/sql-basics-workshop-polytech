@@ -1,4 +1,4 @@
-﻿-- ============================================
+-- ============================================
 -- Exercice 1 : Creation et population de la base
 -- Realise par : ORELLANA Enzo
 -- Date : 2026-06-12

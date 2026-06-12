@@ -1,4 +1,4 @@
-﻿-- ============================================
+-- ============================================
 -- Exercice 4 : Agregations et statistiques
 -- Realise par : ORELLANA Enzo
 -- Date : 2026-06-12

@@ -1,4 +1,4 @@
-﻿-- ============================================
+-- ============================================
 -- Exercice 2 : Requetes SELECT simples
 -- Realise par : ORELLANA Enzo
 -- Date : 2026-06-12

@@ -1,4 +1,4 @@
-﻿-- ============================================
+-- ============================================
 -- Exercice 8 : Performance et indexation
 -- Realise par : ORELLANA Enzo
 -- Date : 2026-06-12
@@ -150,10 +150,19 @@ ORDER BY s.pseudo, d.intitule;
 -- Gain de performance : ((temps_avant - temps_apres) / temps_avant) * 100
 
 -- Bonus : index trigram pour optimiser les recherches LIKE.
-CREATE EXTENSION IF NOT EXISTS pg_trgm;
+-- Cette partie est bonus. Si l'extension pg_trgm n'est pas disponible
+-- sur le serveur, le reste de l'exercice reste valide.
+DO $$
+BEGIN
+    CREATE EXTENSION IF NOT EXISTS pg_trgm;
 
-CREATE INDEX IF NOT EXISTS idx_streamer_pseudo_trgm
-    ON streamer USING gin (pseudo gin_trgm_ops);
+    CREATE INDEX IF NOT EXISTS idx_streamer_pseudo_trgm
+        ON streamer USING gin (pseudo gin_trgm_ops);
+
+EXCEPTION
+    WHEN OTHERS THEN
+        RAISE NOTICE 'Bonus pg_trgm non execute : %', SQLERRM;
+END $$;
 
 EXPLAIN ANALYZE
 SELECT
